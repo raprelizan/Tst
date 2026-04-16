@@ -113,6 +113,13 @@ npm run install:all
 
 ### 4) إعداد قاعدة البيانات PostgreSQL
 
+إذا برنامج تثبيت PostgreSQL سأل عن **Port** و **Locale** اختر:
+
+- **Port:** `5432` (الخيار الافتراضي والمفضل)
+- **Locale:** اتركه على **System Default** أو اختر `en_US.UTF-8`
+
+> إذا كان المنفذ `5432` مستخدمًا فعلًا، اختر مثلًا `5433`، ثم حدّث `DATABASE_URL` بنفس المنفذ.
+
 1. أنشئ قاعدة بيانات باسم `amansignal` (أو أي اسم تريد).
 2. حدّث `DATABASE_URL` داخل `backend/.env`.
 
