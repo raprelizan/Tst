@@ -183,6 +183,48 @@ Frontend فقط:
 npm run dev:frontend
 ```
 
+## حل المشاكل الشائعة على Windows (PowerShell)
+
+### 1) خطأ npm.ps1 (Execution Policy)
+
+إذا ظهر الخطأ:
+`l’exécution de scripts est désactivée sur ce système`
+
+نفّذ PowerShell كمسؤول ثم:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+أغلق PowerShell وافتحه مجددًا، أو استخدم مباشرة:
+
+```powershell
+npm.cmd -v
+```
+
+### 2) `psql` غير معروف
+
+هذا يعني PostgreSQL غير مثبت أو مساره غير مضاف إلى `PATH`.
+
+- ثبّت PostgreSQL.
+- أضف المسار (مثال):
+  `C:\Program Files\PostgreSQL\16\bin`
+- أعد فتح PowerShell ثم جرّب:
+
+```powershell
+psql --version
+```
+
+### 3) `git` غير معروف
+
+- ثبّت Git for Windows من الموقع الرسمي.
+- أثناء التثبيت اختر إضافة Git إلى PATH.
+- أعد فتح PowerShell ثم:
+
+```powershell
+git --version
+```
+
 ### 1) Backend
 
 ```bash
