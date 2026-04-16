@@ -27,6 +27,24 @@ AmanSignal is a secure intermediary platform for collecting community reports an
 
 ## Local Setup
 
+## المتطلبات (What you need on your computer)
+
+قبل التشغيل المحلي، ثبّت البرامج التالية:
+
+1. **Node.js 20+** (يفضّل آخر إصدار LTS) + `npm`
+2. **PostgreSQL 14+** + أداة `psql` (سطر الأوامر)
+3. **Git** (لنسخ المشروع)
+4. (اختياري) **VS Code** أو أي محرر كود
+
+للتحقق من التثبيت:
+
+```bash
+node -v
+npm -v
+psql --version
+git --version
+```
+
 ## التشغيل السريع (Quick Start)
 
 ```bash
@@ -45,6 +63,8 @@ npm run dev
 
 - الواجهة الأمامية: `http://localhost:5173`
 - الـ API: `http://localhost:4000/api/health`
+
+إذا ظهر خطأ `psql: command not found` فهذا يعني أن PostgreSQL Client غير مضاف إلى `PATH`.
 
 ### 1) Backend
 
