@@ -45,6 +45,18 @@ psql --version
 git --version
 ```
 
+## هل يمكن استخدام XAMPP؟
+
+نعم، **ممكن جزئياً**:
+
+- هذا المشروع يعتمد على **Node.js + Express + PostgreSQL** وليس PHP/MySQL.
+- لذلك XAMPP ليس ضروريًا لتشغيله، لكنه يمكن أن يفيد فقط كـ **Apache reverse proxy** إذا أردت.
+- ستظل بحاجة إلى:
+  - Node.js (لتشغيل backend/frontend)
+  - PostgreSQL (قاعدة البيانات الأساسية)
+
+الخلاصة: يمكنك استخدام XAMPP بجانب المشروع، لكن لا يغني عن Node.js وPostgreSQL.
+
 ## التشغيل السريع (Quick Start)
 
 ```bash
