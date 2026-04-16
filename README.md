@@ -78,6 +78,104 @@ npm run dev
 
 إذا ظهر خطأ `psql: command not found` فهذا يعني أن PostgreSQL Client غير مضاف إلى `PATH`.
 
+## التثبيت والتشغيل بالتفصيل (Step-by-step)
+
+### 1) تنزيل المشروع
+
+```bash
+git clone <YOUR_REPO_URL>
+cd Tst
+```
+
+### 2) تثبيت الأدوات المطلوبة
+
+- Node.js 20+ و npm
+- PostgreSQL 14+
+- Git
+
+تحقق:
+
+```bash
+node -v
+npm -v
+psql --version
+git --version
+```
+
+### 3) تثبيت الاعتمادات (Dependencies)
+
+من جذر المشروع:
+
+```bash
+npm install
+npm run install:all
+```
+
+### 4) إعداد قاعدة البيانات PostgreSQL
+
+1. أنشئ قاعدة بيانات باسم `amansignal` (أو أي اسم تريد).
+2. حدّث `DATABASE_URL` داخل `backend/.env`.
+
+مثال:
+
+```env
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/amansignal
+```
+
+ثم نفّذ المخطط:
+
+```bash
+cp backend/.env.example backend/.env
+psql "$DATABASE_URL" -f backend/sql/schema.sql
+```
+
+### 5) إعداد مفتاح التشفير
+
+داخل `backend/.env` ضع قيمة قوية لـ:
+
+```env
+CONFIDENTIAL_ENCRYPTION_KEY=replace_with_very_long_random_secret_min_32_chars
+```
+
+> يجب أن يكون 32 حرفًا على الأقل.
+
+### 6) تشغيل المشروع
+
+من جذر المشروع:
+
+```bash
+npm run dev
+```
+
+سيعمل:
+
+- Backend على المنفذ `4000`
+- Frontend على المنفذ `5173`
+
+### 7) التحقق أن كل شيء يعمل
+
+1. افتح: `http://localhost:5173`
+2. افتح: `http://localhost:4000/api/health`
+3. يجب أن ترى JSON مثل:
+
+```json
+{ "status": "ok", "service": "AmanSignal API" }
+```
+
+### 8) تشغيل كل خدمة منفصلة (اختياري)
+
+Backend فقط:
+
+```bash
+npm run dev:backend
+```
+
+Frontend فقط:
+
+```bash
+npm run dev:frontend
+```
+
 ### 1) Backend
 
 ```bash
