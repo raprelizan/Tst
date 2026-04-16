@@ -27,6 +27,25 @@ AmanSignal is a secure intermediary platform for collecting community reports an
 
 ## Local Setup
 
+## التشغيل السريع (Quick Start)
+
+```bash
+# من جذر المشروع
+npm install
+npm run install:all
+cp backend/.env.example backend/.env
+```
+
+حدّث قيمة `DATABASE_URL` داخل `backend/.env` ثم نفّذ:
+
+```bash
+psql "$DATABASE_URL" -f backend/sql/schema.sql
+npm run dev
+```
+
+- الواجهة الأمامية: `http://localhost:5173`
+- الـ API: `http://localhost:4000/api/health`
+
 ### 1) Backend
 
 ```bash
